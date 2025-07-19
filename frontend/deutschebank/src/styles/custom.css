@@ -1,0 +1,10 @@
+/* Example custom styles */
+body {
+  font-family: 'Inter', sans-serif; /* Custom font */
+}
+
+h1, h2, h3 {
+  font-weight: 600; /* Custom heading styles */
+}
+
+/* Add more custom styles as needed */

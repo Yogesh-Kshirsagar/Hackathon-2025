@@ -1,0 +1,14 @@
+/* Example component styles */
+.sidebar {
+  /* Custom styles for sidebar */
+}
+
+.header {
+  /* Custom styles for header */
+}
+
+.card {
+  @apply bg-white rounded-xl shadow-sm; /* Using Tailwind's @apply directive */
+}
+
+/* Add more component styles as needed */
