@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 const HomePage = () => {
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef();
+    
+      // Close dropdown when clicking outside
+      useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setDropdownOpen(false);
+          }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+      }, []);
+
   return (
     <>
       <meta charSet="UTF-8" />
@@ -79,52 +94,11 @@ const HomePage = () => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     >
-                      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
-                    </svg>
-                    Transactions
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
-                  >
-                    <svg
-                      className="w-5 h-5 text-blue-300"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      viewBox="0 0 24 24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
                       <circle cx={12} cy={12} r={10} />
                       <line x1={12} y1={8} x2={12} y2={12} />
                       <line x1={12} y1={16} x2={12} y2={16} />
                     </svg>
                     Loans
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
-                  >
-                    <svg
-                      className="w-5 h-5 text-blue-300"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      viewBox="0 0 24 24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M12 20h9" />
-                      <path d="M12 4h9" />
-                      <path d="M4 7h16" />
-                      <path d="M4 17h16" />
-                    </svg>
-                    Investments
                   </a>
                 </li>
                 <li>
@@ -161,49 +135,76 @@ const HomePage = () => {
         <main className="flex-1 flex flex-col p-8 pb-20">
           {/* Header */}
           <header className="flex justify-between items-center mb-8">
-            <h1 className="text-xl font-semibold select-none">
-              Financial Dashboard
-            </h1>
-            <div className="flex items-center gap-6">
-              <button
-                aria-label="Notifications"
-                className="relative text-gray-600 hover:text-gray-800"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 18 14.158V11a6 6 0 0 0-5-5.917V5a2 2 0 1 0-4 0v.083A6 6 0 0 0 4 11v3.159c0 .538-.214 1.055-.595 1.436L2 17h5m5 0v1a3 3 0 1 1-6 0v-1z" />
-                </svg>
-                <span className="absolute -top-1 -right-1 inline-block w-2.5 h-2.5 bg-red-600 rounded-full" />
-              </button>
-              <div
-                className="flex items-center gap-3 cursor-pointer select-none"
-                tabIndex={0}
-              >
-                <div className="bg-blue-600 text-white rounded-full w-9 h-9 flex items-center justify-center font-semibold">
-                  JD
-                </div>
-                <span className="text-gray-700 font-medium">Jishnu Deb</span>
-                <svg
-                  className="w-4 h-4 text-gray-700"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9" />
-                </svg>
-              </div>
+        <h1 className="text-xl font-semibold select-none">
+          Accounts Overview
+        </h1>
+        <div className="flex items-center gap-6 relative" ref={dropdownRef}>
+          <button
+            aria-label="Notifications"
+            className="relative text-gray-600 hover:text-gray-800"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0 1 18 14.158V11a6 6 0 0 0-5-5.917V5a2 2 0 1 0-4 0v.083A6 6 0 0 0 4 11v3.159c0 .538-.214 1.055-.595 1.436L2 17h5m5 0v1a3 3 0 1 1-6 0v-1z" />
+            </svg>
+            <span className="absolute -top-1 -right-1 inline-block w-2.5 h-2.5 bg-red-600 rounded-full" />
+          </button>
+
+          {/* Profile Dropdown */}
+          <div
+            className="flex items-center gap-3 cursor-pointer select-none"
+            tabIndex={0}
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+          >
+            <div className="bg-blue-600 text-white rounded-full w-9 h-9 flex items-center justify-center font-semibold">
+              JD
             </div>
-          </header>
+            <span className="text-gray-700 font-medium">Jishnu Deb</span>
+            <svg
+              className="w-4 h-4 text-gray-700"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </div>
+
+          {/* Dropdown Menu */}
+          {dropdownOpen && (
+            <div className="absolute right-0 mt-12 w-44 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 z-50">
+              <ul className="py-1 text-sm text-gray-700">
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 transition"
+                  >
+                    Settings
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 transition"
+                  >
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+      </header>
           {/* Top stats */}
           <section className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div className="bg-white rounded-xl p-6 shadow-sm flex justify-between items-center">
