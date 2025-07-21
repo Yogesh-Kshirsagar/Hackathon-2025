@@ -41,7 +41,7 @@ const AccountsPage = () => {
               <ul className="space-y-4 text-sm font-medium">
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
                   >
                     <svg
@@ -60,7 +60,7 @@ const AccountsPage = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/accounts"
                     className="flex items-center gap-3 px-3 py-2 rounded-md bg-blue-900 hover:bg-blue-800 transition"
                   >
                     <svg
@@ -82,7 +82,7 @@ const AccountsPage = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/loans"
                     className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
                   >
                     <svg
@@ -103,7 +103,7 @@ const AccountsPage = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/settings"
                     className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
                   >
                     <svg

@@ -42,11 +42,11 @@ const LoansPage = () => {
               <ul className="space-y-4 text-sm font-medium">
                 <li>
                   <a
-                    href="#"
-                    className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
+                    href="/"
+                    className="flex items-center gap-3 px-3 py-2 rounded-md bg-blue-900 hover:bg-blue-800 transition"
                   >
                     <svg
-                      className="w-5 h-5 text-blue-300"
+                      className="w-5 h-5 text-blue-200"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth={2}
@@ -61,8 +61,8 @@ const LoansPage = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="flex items-center gap-3 px-3 py-2 hover:bg-blue-800 transition"
+                    href="/accounts"
+                    className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
                   >
                     <svg
                       className="w-5 h-5 text-blue-300"
@@ -83,28 +83,7 @@ const LoansPage = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
-                    className="flex items-center gap-3 px-3 py-2 rounded-md bg-blue-900 hover:bg-blue-800 transition"
-                  >
-                    <svg
-                      className="w-5 h-5 text-blue-200"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      viewBox="0 0 24 24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <circle cx={12} cy={12} r={10} />
-                      <line x1={12} y1={8} x2={12} y2={12} />
-                      <line x1={12} y1={16} x2={12} y2={16} />
-                    </svg>
-                    Loans
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
+                    href="/loans"
                     className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
                   >
                     <svg
@@ -119,6 +98,27 @@ const LoansPage = () => {
                       <circle cx={12} cy={12} r={10} />
                       <path d="M12 8v4l3 3" />
                     </svg>
+                    Loans
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/settings"
+                    className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-800 transition"
+                  >
+                    <svg
+                      className="w-5 h-5 text-blue-300"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      viewBox="0 0 24 24"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <circle cx={12} cy={12} r={10} />
+                      <line x1={12} y1={8} x2={12} y2={12} />
+                      <line x1={12} y1={16} x2={12} y2={16} />
+                    </svg>
                     Settings
                   </a>
                 </li>
@@ -132,7 +132,6 @@ const LoansPage = () => {
             </div>
           </nav>
         </div>
-
         <main className="flex-1 flex flex-col p-8 pb-20">
           {/* Header */}
           <header className="flex justify-between items-center mb-8">
