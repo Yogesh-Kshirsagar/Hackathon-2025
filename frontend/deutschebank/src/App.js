@@ -6,10 +6,12 @@ import LoansPage from './components/LoansPage.js';
 import AdminPage from './components/AdminPage.js';
 import SettingsPage from './components/SettingsPage.js';
 import LoginPage from './components/LoginPage.js';
+import ChatBot from './components/ChatBot.js';
 
 const App = () => {
   return (
     <Router>
+      <ChatBot />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
