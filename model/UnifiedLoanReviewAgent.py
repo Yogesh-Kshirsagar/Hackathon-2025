@@ -9,7 +9,7 @@ import os
 load_dotenv()
 
 # Configure the API key
-genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+genai.configure(api_key="AIzaSyD0L8Rsyl8XnMM4vCLipY7qO0y3177v8gU")
 
 class UnifiedLoanReviewAgent:
     def __init__(self, applicant_data):
