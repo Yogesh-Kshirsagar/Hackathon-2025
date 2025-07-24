@@ -11,17 +11,27 @@ export default function ChatBot() {
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
   const endRef = useRef();
 
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [msgs]);
-
-  const toggleChat = () => {
-    setIsOpen(!isOpen);
-    if (!isOpen) {
-      setLang(null);
-      setMsgs([]);
-    }
+ useEffect(() => {
+  // Cancel speech when refreshing the page
+  const handleBeforeUnload = () => {
+    window.speechSynthesis.cancel();
   };
+  window.addEventListener('beforeunload', handleBeforeUnload);
+  return () => {
+    window.removeEventListener('beforeunload', handleBeforeUnload);
+  };
+}, []);
+
+const toggleChat = () => {
+  if (isOpen) {
+    window.speechSynthesis.cancel(); // stop voice when closing
+  } else {
+    setLang(null);
+    setMsgs([]);
+  }
+  setIsOpen(!isOpen);
+};
+
 
   const selectLanguage = (selected) => {
     setLang(selected);
